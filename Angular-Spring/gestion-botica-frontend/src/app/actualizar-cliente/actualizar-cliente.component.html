@@ -1,0 +1,133 @@
+<div class="col-md-6 offset-md-3">
+  <h3 class="text-center">Edición del Cliente</h3>
+  <form (ngSubmit)= "onSubmit()" #clienteForm = "ngForm">
+      <div class="form-group">
+          <label>DNI: </label>
+          <input type="text" 
+          class="form-control"
+          id = "dni"
+          [(ngModel)] = "cliente.dni"
+          name="dni"
+          required
+          minlength= "8"
+          maxlength= "8"
+          placeholder="Digite su dni"
+          #dni = "ngModel"
+          >
+          <div class="alert alert-danger" *ngIf= "dni.invalid && (dni.dirty || dni.touched)">
+              <div *ngIf = "dni.errors['required']" >
+                  Digite su dni por favor
+              </div>
+              <div *ngIf = "dni.errors['minlength']">
+                  El dni tiene que contener como minimo 8 caracteres
+              </div>
+              <div *ngIf = "dni.errors['maxlength']">
+                  El dni tiene que contener como maximo 8 caracteres
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label>Nombre: </label>
+          <input type="text" 
+          class="form-control"
+          id = "nombre"
+          [(ngModel)] = "cliente.nombre"
+          name="nombre"
+          required
+          minlength= "4"
+          maxlength= "30"
+          placeholder="Digite su nombre"
+          #nombre = "ngModel"
+          >
+          <div class="alert alert-danger" *ngIf= "nombre.invalid && (nombre.dirty || nombre.touched)">
+              <div *ngIf = "nombre.errors['required']" >
+                  Digite su nombre por favor
+              </div>
+              <div *ngIf = "nombre.errors['minlength']">
+                  El nombre tiene que contener como minimo 4 caracteres
+              </div>
+              <div *ngIf = "nombre.errors['maxlength']">
+                  El nombre tiene que contener como maximo 30 caracteres
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label>Telefono: </label>
+          <input type="text" 
+          class="form-control"
+          id = "telefono"
+          [(ngModel)] = "cliente.telefono"
+          name="telefono"
+          required
+          minlength= "9"
+          maxlength= "9"
+          placeholder="Digite su telefono"
+          #telefono = "ngModel"
+          >
+          <div class="alert alert-danger" *ngIf= "telefono.invalid && (telefono.dirty || telefono.touched)">
+              <div *ngIf = "telefono.errors['required']" >
+                  Digite su telefono por favor
+              </div>
+              <div *ngIf = "telefono.errors['minlength']">
+                  El telefono tiene que contener como minimo 9 caracteres
+              </div>
+              <div *ngIf = "telefono.errors['maxlength']">
+                  El telefono tiene que contener como maximo 9 caracteres
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label>Dirección: </label>
+          <input type="text" 
+          class="form-control"
+          id = "direccion"
+          [(ngModel)] = "cliente.direccion"
+          name="direccion"
+          required
+          minlength= "4"
+          maxlength= "40"
+          placeholder="Digite su direccion"
+          #direccion = "ngModel"
+          >
+          <div class="alert alert-danger" *ngIf= "direccion.invalid && (direccion.dirty || direccion.touched)">
+              <div *ngIf = "direccion.errors['required']" >
+                  Digite su dirección por favor
+              </div>
+              <div *ngIf = "direccion.errors['minlength']">
+                  La dirección tiene que contener como minimo 4 caracteres
+              </div>
+              <div *ngIf = "direccion.errors['maxlength']">
+                  La dirección tiene que contener como maximo 40 caracteres
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label>EMAIL: </label>
+          <input type="email" 
+          class="form-control"
+          id = "email"
+          [(ngModel)] = "cliente.email"
+          name="email"
+          pattern ="[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*@[a-zA-Z0-9_]+([.][a-zA-Z0-9_]+)*[.][a-zA-Z]{1,5}"
+          required
+          placeholder="Digite su email"
+          #email = "ngModel"
+          >
+          <div class="alert alert-danger" *ngIf= "email.invalid && (email.dirty || email.touched)">
+              <div *ngIf = "email.errors['required']" >
+                Digite su email por favor
+              </div>
+              <div *ngIf = "email.errors['pattern']" >
+                Por favor digite el email con el siguiente formato : user100@gmail.com
+              </div>
+            </div>
+      </div>
+
+
+      <button class="btn btn-success" [disabled]= "!clienteForm.form.valid">Guardar</button>
+  </form>
+</div>
